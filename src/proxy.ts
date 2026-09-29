@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const SESSION_HINT = "gw_session";
-const PUBLIC_PATHS = ["/login", "/register", "/invite"];
+const PUBLIC_PATHS = ["/login", "/register", "/invite", "/privacy"];
 
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
