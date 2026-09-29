@@ -1,0 +1,46 @@
+[project]
+name = "gatewise-api"
+version = "0.1.0"
+description = "Gatewise backend: authentication, organizations and role-based access control"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic[email]>=2.9",
+    "pydantic-settings>=2.6",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "psycopg[binary,pool]>=3.2",
+    "alembic>=1.14",
+    "argon2-cffi>=23.1",
+    "pyjwt[crypto]>=2.10",
+    "httpx>=0.28",
+]
+
+[dependency-groups]
+dev = [
+    "uvicorn[standard]>=0.32",
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-xdist>=3.6",
+    "ruff>=0.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"backend/mailer/templates.py" = ["E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["backend/tests"]
+addopts = "-n 8 --dist load"
+
+[tool.uv]
+package = false
