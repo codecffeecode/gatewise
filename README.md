@@ -34,7 +34,7 @@ Reset all demo data at any time with `npm run db:reset` (drops the schema, migra
 
 1. **Sign in as Alice** (`/login`, click the demo chip). Dashboard shows the org, member count, her role and the permission list.
 2. **Users** – search, filter by role/status, open the row menu. Dave shows as *Suspended*; reactivate him.
-3. **Invite** – *Invite* → enter any email → role Manager. Because email is not configured, the accept link is shown; copy it.
+3. **Invite** – *Invite* → enter your own email → role Manager. The live deployment sends a real invitation email (Brevo); locally without `BREVO_API_KEY` the accept link is shown instead so you can copy it.
    Open the link in a private window: the invitee sets name + password and lands signed in as a Manager.
 4. **Create user directly** – *Create user* with a password; that user is active immediately.
 5. **Roles & permissions** – the matrix shows what each role can do and how many members hold it.
@@ -46,7 +46,7 @@ Reset all demo data at any time with `npm run db:reset` (drops the schema, migra
 11. **Super admin** (`admin@gatewise.dev`) – platform stats, disable Globex (Erin and Frank lose access instantly), create a new org with an admin invite link, *Enter* an org with full permissions.
 12. **Register** (`/register`) – a brand-new company gets its own org with the registering user as Admin.
 
-If Google is configured, sign in with Google using an email that was invited: the invitation is accepted automatically and the account is linked.
+Google sign-in is enabled on the live deployment: use *Continue with Google* with any Google account. If that email was invited, the invitation is accepted automatically and the account is linked; otherwise a fresh account is created.
 
 ## Local development
 
